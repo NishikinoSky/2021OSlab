@@ -87,7 +87,7 @@ void schedule(void) {
     }
 
     if(allzero){
-	printf("Current Setting is down, use task0 to initialize a new setting.\n");
+	printf("Current Setting is done, use task0 to initialize a new setting.\n");
         task[0]->counter = 1;
 	next = 0;
     }
@@ -135,7 +135,7 @@ void schedule(void) {
     }
 
     if(allzero){
-	printf("Current Setting is down, use task0 to initialize a new setting.\n");
+	printf("Current Setting is done, use task0 to initialize a new setting.\n");
         task[0]->counter = 1;
 	next = 0;
     }
