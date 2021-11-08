@@ -69,7 +69,6 @@ void do_timer(void) {
     /*your code*/
     current->counter--;
     if (current->counter <= 0) schedule();
-    else do_timer();
 }
 
 //Select the next task to run. If all tasks are done(counter=0), set task0's counter to 1 and it would 
