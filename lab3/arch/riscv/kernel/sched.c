@@ -38,9 +38,8 @@ void task_init(void) {
     current->pid = 0;
     task[0] = current;
     task[0]->thread.sp = (unsigned long long) task[0] + TASK_SIZE;
-    asm("la t0, __init_epc");
-    asm("sd t0, %0"::"m"(task[0]->thread.ra));
-
+    task[0]->thread.ra = &__init_epc;
+	
     //set other 4 tasks
     for (int i = 1; i <= LAB_TEST_NUM; ++i) {
 
@@ -52,9 +51,7 @@ void task_init(void) {
         task[i]->blocked = 0;
         task[i]->pid = i;
         task[i]->thread.sp = (unsigned long long) task[i] + TASK_SIZE;
-
-	asm("la t0, __init_epc");
-	asm("sd t0, %0"::"m"(task[i]->thread.ra));
+	task[i]->thread.ra = &__init_epc;
 	
         printf("[PID = %d] Process Create Successfully!\n", task[i]->pid);
     }
