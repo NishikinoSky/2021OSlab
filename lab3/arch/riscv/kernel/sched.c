@@ -82,7 +82,7 @@ void schedule(void) {
     for(int i = LAB_TEST_NUM; i > 0; i--){
         if(task[i]->state == TASK_RUNNING){
             if(task[i]->counter > 0) allzero = 0;
-            if((task[next]->counter <= 0 && task[i]->counter > 0 || (task[i]->counter > 0 && task[i]->counter < task[next]->counter))
+            if((task[next]->counter <= 0 && task[i]->counter > 0) || (task[i]->counter > 0 && task[i]->counter < task[next]->counter))
                 next = i;
         }
     }
