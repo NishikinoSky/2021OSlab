@@ -95,9 +95,10 @@ void schedule(void)
             puti(task[i]->counter);
             puts("\n");
         }
+	    schedule();
     }
 
-    if(current->pid != task[next]->pid)
+    else if(current->pid != task[next]->pid)
     {
         puts("[!] Switch from task ");
         puti(current->pid);
